@@ -160,7 +160,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Class.cs" />
+    <Compile Include="ViewModels\ItemIndexViewModel.cs" />
+    <Compile Include="ViewModels\ClienteIndexViewModel.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItensController.cs" />
     <Compile Include="Controllers\PrecoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -223,6 +226,10 @@
     <Content Include="Views\View1.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Itens\Index.cshtml" />
+    <Content Include="Views\Shared\NavBar.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Itens\Details.cshtml" />
+    <Content Include="Views\Clientes\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

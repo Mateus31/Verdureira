@@ -11,13 +11,25 @@ namespace WebApplication1.Controllers
     {
         //
         // GET: /Cliente/
+        public List<Cliente> Clientes = new List<Cliente>
+        {
+        new Cliente {Id = 1, Nome = "Mateus Machado", CPF = "087.967.379-64", Telefone = "99622-8070" },
+        new Cliente {Id = 2, Nome = "Luis Tripa Seca", CPF = "542.320.023-23", Telefone = "852552-2200" }
+    };
+
         public ActionResult Index()
         {
-            var cliente = new Cliente
-            {
-                Nome = "José"
-            };
+            return View(Clientes);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var cliente = Clientes.SingleOrDefault(c => c.Id == id);
+            if (cliente == null)
+                return HttpNotFound();
+
             return View(cliente);
         }
-	}
+    }
 }
+

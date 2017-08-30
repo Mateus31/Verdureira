@@ -11,14 +11,25 @@ namespace WebApplication1.Controllers
     {
         //
         // GET: /Item/
+        public List<Item> Itens = new List<Item>
+        {
+        new Item {Id = 3, Nome = "Cenoura", Tipo = "Legumes"},
+        new Item {Id = 4, Nome = "Alface", Tipo = "Verdura"}
+    };
+
         public ActionResult Index()
         {
-            var item = new Item
-            {
-                Tipo = "Cenoura"
-            };
+            return View(Itens);
+        }
+
+        public ActionResult Details(int id)
+        {
+            var item = Itens.SingleOrDefault(c => c.Id == id);
+            if (item == null)
+                return HttpNotFound();
+
             return View(item);
         }
-	}
+    }
 }
 

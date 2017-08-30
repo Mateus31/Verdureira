@@ -1,8 +1,27 @@
-﻿@model WebApplication1.Models.Cliente
+﻿@model List<WebApplication1.Models.Cliente>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Nome</h2>
 
+<h2>Clientes</h2>
+
+@if (Model.Count > 0) 
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr><th>Cliente</th></tr>
+        </thead>
+        <tbody>
+            @foreach (var cliente in Model)
+            {
+                <tr><td>@Html.ActionLink(@cliente.Nome, "Details", new { cliente.Id }) </td></tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Não foi dessa vez!!!</p>
+}

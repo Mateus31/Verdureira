@@ -8,7 +8,7 @@ namespace WebApplication1.Models
     public class Item
 
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
 
         public string Tipo { get; set; }
