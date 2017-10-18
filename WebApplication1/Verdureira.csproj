@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -160,6 +161,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Class.cs" />
+    <Compile Include="Migrations\201710172359239_MigrationInicial.cs" />
+    <Compile Include="Migrations\201710172359239_MigrationInicial.Designer.cs">
+      <DependentUpon>201710172359239_MigrationInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710180001597_AddItem.cs" />
+    <Compile Include="Migrations\201710180001597_AddItem.Designer.cs">
+      <DependentUpon>201710180001597_AddItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModels\ItemIndexViewModel.cs" />
     <Compile Include="ViewModels\ClienteIndexViewModel.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
@@ -226,10 +236,13 @@
     <Content Include="Views\View1.cshtml" />
     <Content Include="Views\Clientes\Index.cshtml" />
     <Content Include="Views\Itens\Index.cshtml" />
-    <Content Include="Views\Shared\NavBar.cshtml" />
+    <Content Include="Views\Shared\NavBar.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Itens\Details.cshtml" />
     <Content Include="Views\Clientes\Details.cshtml" />
+    <Content Include="Views\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -240,6 +253,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710172359239_MigrationInicial.resx">
+      <DependentUpon>201710172359239_MigrationInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710180001597_AddItem.resx">
+      <DependentUpon>201710180001597_AddItem.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

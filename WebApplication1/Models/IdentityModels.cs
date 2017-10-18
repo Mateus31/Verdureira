@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace WebApplication1.Models
 {
@@ -9,6 +10,9 @@ namespace WebApplication1.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Item> Item { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection")
         {
