@@ -12,6 +12,7 @@ namespace WebApplication1.Models
     {
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Item> Item { get; set; }
+        public object Preco { get; internal set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection")

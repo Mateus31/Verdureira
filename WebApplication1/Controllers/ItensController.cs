@@ -9,26 +9,90 @@ namespace WebApplication1.Controllers
 {
     public class ItensController : Controller
     {
-        //
-        // GET: /Item/
-        public List<Item> Itens = new List<Item>
+      
+        private ApplicationDbContext _context;
+
+
+
+        public ItensController()
         {
-        new Item {Id = 3, Nome = "Cenoura", Tipo = "Legumes"},
-        new Item {Id = 4, Nome = "Alface", Tipo = "Verdura"}
-    };
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+        // GET: Itens
 
         public ActionResult Index()
         {
-            return View(Itens);
+
+            var itens = _context.Item.ToList();
+
+
+            return View(itens);
         }
 
         public ActionResult Details(int id)
         {
-            var item = Itens.SingleOrDefault(c => c.Id == id);
+            var item = _context.Item.SingleOrDefault(c => c.Id == id);
+
+            if (item == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(item);
+
+        }
+
+        public ActionResult New()
+        {
+
+            var item = new Item();
+
+            return View("ItemForm", item);
+        }
+
+        [HttpPost] // só será acessada com POST
+        public ActionResult Save(Item item) // recebemos um cliente
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("ItemForm", item);
+            }
+
+            if (item.Id == 0)
+            {
+                // armazena o cliente em memória
+                _context.Item.Add(item);
+            }
+            else
+            {
+                var customerInDb = _context.Item.Single(c => c.Id == item.Id);
+
+                //customerInDb.DataCompra = item.DataCompra;
+                //customerInDb.ProdutoVencido = item.ProdutoVencido;
+
+
+            }
+
+            // faz a persistência
+            _context.SaveChanges();
+            // Voltamos para a lista de clientes
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var item = _context.Item.SingleOrDefault(c => c.Id == id);
+
             if (item == null)
                 return HttpNotFound();
 
-            return View(item);
+
+            return View("ItemForm", item);
         }
     }
 }

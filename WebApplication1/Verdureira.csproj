@@ -175,7 +175,6 @@
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItensController.cs" />
-    <Compile Include="Controllers\PrecoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -243,6 +242,8 @@
     <Content Include="Views\Itens\Details.cshtml" />
     <Content Include="Views\Clientes\Details.cshtml" />
     <Content Include="Views\New.cshtml" />
+    <Content Include="Views\Clientes\ClienteForm.cshtml" />
+    <Content Include="Views\Itens\ItemForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
