@@ -1,4 +1,4 @@
-﻿@model List<WebApplication1.Models.Cliente>
+﻿@model IEnumerable<WebApplication1.Models.Cliente>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,7 +11,7 @@
     @Html.ActionLink("Novo Cliente", "New", null, new { @class = "btn btn-primary" })
 </p>
 
-@if (Model.Count > 0) 
+@if (Model.Any()) 
 {
     <table class="table table-bordered table-hover">
         <thead>
@@ -20,10 +20,12 @@
         <tbody>
             @foreach (var cliente in Model)
             {
-                <tr><td>@Html.ActionLink(@cliente.Nome, "Edit", new { cliente.Id }) </td></tr>
+                @* <tr><td>@Html.ActionLink(@cliente.Nome, "Edit", new { cliente.Id }) </td></tr> *@
+                <tr><td>@cliente.Nome</td></tr>
               
             }
         </tbody>
+       
     </table>
 }
 else

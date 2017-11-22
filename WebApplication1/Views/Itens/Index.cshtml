@@ -7,6 +7,10 @@
 
 <h2>Item</h2>
 
+<p>
+    @Html.ActionLink("Novo Item", "New", null, new { @class = "btn btn-primary" })
+</p>
+
 @if (Model.Count > 0)
 {
     <table class="table table-bordered table-hover">
