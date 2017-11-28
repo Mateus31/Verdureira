@@ -57,6 +57,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost] // só será acessada com POST
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Cliente cliente) // recebemos um cliente
         {
 

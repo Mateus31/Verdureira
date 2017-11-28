@@ -170,6 +170,14 @@
     <Compile Include="Migrations\201710180001597_AddItem.Designer.cs">
       <DependentUpon>201710180001597_AddItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711282310091_TornarNomeECPFObrigatorios.cs" />
+    <Compile Include="Migrations\201711282310091_TornarNomeECPFObrigatorios.Designer.cs">
+      <DependentUpon>201711282310091_TornarNomeECPFObrigatorios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711282316083_TornarItensObrigatorios.cs" />
+    <Compile Include="Migrations\201711282316083_TornarItensObrigatorios.Designer.cs">
+      <DependentUpon>201711282316083_TornarItensObrigatorios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModels\ItemIndexViewModel.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
@@ -261,6 +269,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710180001597_AddItem.resx">
       <DependentUpon>201710180001597_AddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711282310091_TornarNomeECPFObrigatorios.resx">
+      <DependentUpon>201711282310091_TornarNomeECPFObrigatorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711282316083_TornarItensObrigatorios.resx">
+      <DependentUpon>201711282316083_TornarItensObrigatorios.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
