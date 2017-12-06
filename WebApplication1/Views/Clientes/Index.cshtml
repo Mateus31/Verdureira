@@ -4,54 +4,42 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <h2>Clientes</h2>
 
 <p>
     @Html.ActionLink("Novo Cliente", "New", null, new { @class = "btn btn-primary" })
 </p>
 
-@if (Model.Any()) 
+@if (Model.Any())
 {
-    <table class="table table-bordered table-hover">
+    <table id="cliente" class="table table-bordered table-hover">
         <thead>
             <tr>
-            <th>Cliente</th>
-            @*<@*th>Deletar</th>
-            <th>Editar</th>
-            <th>Visualizar</th>*@
-           </tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>CPF</th>
 
+            </tr>
         </thead>
         <tbody>
-                @foreach (var cliente in Model)
-                {
-        <tr>
-                    
-        <td>@Html.ActionLink(@cliente.Nome, "Edit", new { cliente.Id })</td>
-        <td>@cliente.Nome</td>
-        <td>
-         <button data-cliente-id="@cliente.Id"
-         class="btn-link js-delete">Remover</button>
-        </td>
-       </tr>        
-      <tr>  
-          
-            
-            @*<tr><td>@cliente.Nome</td></tr>*@
-            <td>
-            
-                <button data-cliente-id="@cliente.Id" class="btn-link js-delete">Remover</button>
-            </td>
 
+            @foreach (var cliente in Model)
+            {
+                <tr>
+                    <th scope="row">@cliente.Id</th>
+                    <td>@cliente.Nome</td>
+                    <td>@cliente.Telefone</td>
+                    <td>@cliente.CPF</td>
+                    <td>
+                        @Html.ActionLink("Ver", "Details", new { cliente.Id }, new { @class = "btn btn-success btn-xs" })
+                        @Html.ActionLink("Editar", "Edit", new { cliente.Id }, new { @class = "btn btn-warning btn-xs" })
+                        <button data-cliente-id="@cliente.Id" class="btn btn-danger btn-xs js-delete"> Remover </button>
+                    </td>
+                </tr>
+            }
 
-            <td>
-                <button data-cliente-id="@cliente.Id" class="btn-link js-visualizar">Visualizar</button>
-            </td>
-        </tr>
-    }
         </tbody>
-       
     </table>
 }
 else
@@ -69,7 +57,7 @@ else
                         function(result) {
                             if (result) {
                                 $.ajax({
-                                    url: "/cliente/delete/" + button.attr("data-cliente-id"),
+                                    url: "/clientes/delete/" + button.attr("data-cliente-id"),
                                     method: "GET",
                                     success: function() {
                                         button.parents("tr").remove();

@@ -178,6 +178,14 @@
     <Compile Include="Migrations\201711282316083_TornarItensObrigatorios.Designer.cs">
       <DependentUpon>201711282316083_TornarItensObrigatorios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712052331335_BootBox.cs" />
+    <Compile Include="Migrations\201712052331335_BootBox.Designer.cs">
+      <DependentUpon>201712052331335_BootBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712052347514_Bootbox.cs" />
+    <Compile Include="Migrations\201712052347514_Bootbox.Designer.cs">
+      <DependentUpon>201712052347514_Bootbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModels\ItemIndexViewModel.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
@@ -200,6 +208,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootbox.js" />
+    <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -275,6 +285,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711282316083_TornarItensObrigatorios.resx">
       <DependentUpon>201711282316083_TornarItensObrigatorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712052331335_BootBox.resx">
+      <DependentUpon>201712052331335_BootBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712052347514_Bootbox.resx">
+      <DependentUpon>201712052347514_Bootbox.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

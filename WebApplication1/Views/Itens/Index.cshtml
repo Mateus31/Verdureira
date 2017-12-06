@@ -13,19 +13,67 @@
 
 @if (Model.Count > 0)
 {
-    <table class="table table-bordered table-hover">
+    <table id="item" class="table table-bordered table-hover">
         <thead>
-            <tr><th>Item</th></tr>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Tipo</th>
+            </tr>
         </thead>
         <tbody>
+
             @foreach (var item in Model)
             {
-                <tr><td>@Html.ActionLink(@item.Nome, "Edit", new { item.Id }) </td></tr>
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>@item.Nome</td>
+                    <td>@item.Tipo</td>
+                    <td>
+                        @Html.ActionLink("Ver", "Details", new { item.Id }, new { @class = "btn btn-success btn-xs" })
+                        @Html.ActionLink("Editar", "Edit", new { item.Id }, new { @class = "btn btn-warning btn-xs" })
+                        <button data-item-id="@item.Id" class="btn btn-danger btn-xs js-delete"> Remover </button>
+                    </td>
+                </tr>
             }
+
         </tbody>
     </table>
+
 }
 else
 {
     <p>Não foi dessa vez!!!</p>
+}
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#item").on("click",".js-delete",
+                function () {
+                    var button = $(this);
+                    bootbox.confirm("Tem certeza que quer remover este item?",
+                        function(result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/item/delete/" + button.attr("data-item-id"),
+                                    method: "GET",
+                                    success: function() {
+                                        button.parents("tr").remove();
+                                    }
+                                });
+                            }
+                        });
+                    /*if (confirm("Tem certeza que quer remover este item?")) {
+                        $.ajax({
+                            url: "/item/delete/" + button.attr("data-item-id"),
+                            method: "GET",
+                            success: function() {
+                                button.parents("tr").remove();
+                            }
+                        });
+                    }*/
+                });
+        });
+    </script>
 }

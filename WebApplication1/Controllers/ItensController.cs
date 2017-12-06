@@ -9,7 +9,7 @@ namespace WebApplication1.Controllers
 {
     public class ItensController : Controller
     {
-      
+
         private ApplicationDbContext _context;
 
 
@@ -93,6 +93,16 @@ namespace WebApplication1.Controllers
 
 
             return View("ItemForm", item);
+        }
+        public ActionResult Delete(int id)
+        {
+            var item = _context.Item.SingleOrDefault(c => c.Id == id);
+            if (item == null)
+                return HttpNotFound();
+            _context.Item.Remove(item);
+            _context.SaveChanges();
+            return new HttpStatusCodeResult(200);
+
         }
     }
 }
